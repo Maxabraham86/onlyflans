@@ -2,8 +2,30 @@
 
 
 {% block content %}
-{{ block.super }}
-<h3> Welcome </h3>
 
+<h3> Welcome Customers <br>
+    Biemvenidos queridos clientes!
+</h3>
+<!--formulario-->
+<div id="formulario">
+    <div class="container2">
+        <form>
+            <h3 class="text-center text-light mb-5">Contacto</h3>
+            <div class="mb-3">
+                <label for="" class="form-label text-center">Nombre</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Asunto</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Mensaje</label>
+                <textarea id="casilla_mensaje" style="height: 200px;"></textarea>
+            </div>
+            <button id="mensaje" type="submit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip" data-bs-title="Presiona para enviar a tu mensaje">enviar</button>
+        </form>
+    </div>
+</div>
 {% endblock%}
-

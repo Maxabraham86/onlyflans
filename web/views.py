@@ -1,31 +1,26 @@
 from django.shortcuts import render
+from web.postres import postres
 
-# postres =[
-#     { 'id' : 1,
-#     'nombre': 'leche asada',
-#     'ingrediente' :'leche, huevo...'
-    
-# },
-#     {'id' :2,
-#     'nombre': 'flan de coco',
-#     'ingrediente' :'leche, coco...'
-# },
-#     {'id':3
-#     'nombre': 'flan de chocolate',
-#     'ingrediente' :'leche, chocolate...'}
-#         ]
 
-# Create your views here.
 def index(req):
-    context = {
-        'leche asada':'leche asada',
-        'flan de coco': 'flan con coco'
+    context ={
+        'postres':postres
     }
-        
     
-    
-    return render(req, 'index.html',context)
+    return render(req, 'index.html', context)
 
+def detalleFlan(req, id):
+    #print (f'\n\n\n{id}\n\n\n')
+    id = int(id)
+    flan_selec = None
+    for postre in postres:
+        if postre['id'] == id:
+            flan_selec = postre
+            break
+    context = {
+        'postre': flan_selec
+    }
+    return render(req, 'otro.html', context)
 
 def about(req):
     return render(req, 'about.html')
