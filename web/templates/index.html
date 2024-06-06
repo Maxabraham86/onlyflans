@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <!-- {% include 'parts/carrousel.html' %} -->
-<!-- <li class="list-group-item">
-    <a href="/pets/{{masc.id}}">{{ masc.nombre }}</a>
-</li> -->
+
 <div class="row">
 
     {% for postre in postres %}
     <div class="col-xl-3  col-md-6 col-xs-12 ">
-        <div class="card">
+        <div class="card" >
             <img src="{{postre.imagen_url}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">
@@ -18,7 +16,7 @@
                 <p class="card-text">Aproveche nuestras exquisitas propuestas</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{postre.ingrediente}}<li>
+                <li class="list-group-item">{{postre.ingrediente}}</li>
                 <li class="list-group-item">{{postre.descripcion}}</li>
                 <li class="list-group-item">{{postre.precio}}</li>
             </ul>

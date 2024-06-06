@@ -7,21 +7,26 @@
     Biemvenidos queridos clientes!
 </h3>
 <!--formulario-->
+{% for error in errores %}
+    <!-- <h3 class="danger" > {{mensaje}}</h3> -->
+    <div class="alert alert-success" role="alert">{{error}}</div>
+{% endfor%}
 <div id="formulario">
-    <div class="container2">
-        <form>
+    <div class="container">
+        <form action="/contact_form" method="post">
+            {% csrf_token %}
             <h3 class="text-center text-light mb-5">Contacto</h3>
             <div class="mb-3">
                 <label for="" class="form-label text-center">Nombre</label>
-                <input type="text" class="form-control">
+                <input type="text" name="customer_name" class="form-control" >
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">Asunto</label>
-                <input type="text" class="form-control">
+                <label for="" class="form-label">email</label>
+                <input type="text" name="customer_email" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">Mensaje</label>
-                <textarea id="casilla_mensaje" style="height: 200px;"></textarea>
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="casilla_mensaje"  rows='3' name="message" ></textarea>
             </div>
             <button id="mensaje" type="submit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
                 data-bs-custom-class="custom-tooltip" data-bs-title="Presiona para enviar a tu mensaje">enviar</button>

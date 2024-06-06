@@ -1,0 +1,19 @@
+{% load static%}
+    <style>
+        .responsive-img {
+            width: 35%; /* 35% del ancho de la ventana del navegador /
+            height: auto; / Mantiene la proporción de la imagen /
+            margin-top: 20px; / Espacio arriba /
+            margin-bottom: 20px; / Espacio abajo */
+        }
+
+        @media (max-width: 375px) {
+            .responsive-img {
+                height: 16rem;
+            }
+        }
+    </style> 
+
+<div class="text-center">
+    <a href="/"><img src="{%static 'img/logo_onlyflans.webp'%}" alt="logo" class="responsive-img" ></a>
+</div>
