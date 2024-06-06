@@ -1,0 +1,11 @@
+.card {
+    transition: transform 0.4s ease;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: rgb(62, 231, 62) !important;
+}
