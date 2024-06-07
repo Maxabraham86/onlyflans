@@ -11,9 +11,9 @@
     <!-- <h3 class="danger" > {{mensaje}}</h3> -->
     <div class="alert alert-success" role="alert">{{error}}</div>
 {% endfor%}
-<div id="formulario">
+<!-- <div id="formulario">
     <div class="container">
-        <form action="/contact_form" method="post">
+        <form action="/contact_form/" method="post">
             {% csrf_token %}
             <h3 class="text-center text-light mb-5">Contacto</h3>
             <div class="mb-3">
@@ -32,5 +32,30 @@
                 data-bs-custom-class="custom-tooltip" data-bs-title="Presiona para enviar a tu mensaje">enviar</button>
         </form>
     </div>
+</div> -->
+<div id="formulariod">
+    <div class="container">
+        <form action="/contact_form/" method="post">
+            {% csrf_token %}
+            <!-- <h3 class="text-center text-light mb-5">Contacto</h3>
+            <div class="mb-3">
+                <label for="" class="form-label text-center">Nombre</label>
+                <input type="text" name="nombre" class="form-control" >
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">email</label>
+                <input type="text" name="email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="casilla_mensaje"  rows='3' name="message" ></textarea>
+            </div> -->
+            {{form}}
+            <button id="mensaje" type="submit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip" data-bs-title="Presiona para enviar a tu mensaje">enviar</button>
+        </form>
+    </div>
 </div>
+
+
 {% endblock%}
