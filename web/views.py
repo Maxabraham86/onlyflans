@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from web.postres import postres
 from web.forms import FlanForm
+from web.models import Contact
 
 def index(req):
     context ={
@@ -59,7 +60,7 @@ def contact_form(req):
     
     
     
-    print(customer_email)
+    #print(customer_email)
     #return HttpResponse ("Tamos")
     
 
@@ -78,10 +79,14 @@ def formd(req):
         #validar el formulario
         form = FlanForm(req.POST)
         if form.is_valid():
-            return redirect('/succes')
+            Contact.objects.create(
+                **form.cleaned_data
+            )
+            return redirect('/success')
         context ={'form':form}
         
     return render(req, 'welcome.html', context)
 
-def succes(req):
+def success(req):
     return render(req,'exito.html')
+
