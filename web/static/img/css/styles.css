@@ -1,23 +1,27 @@
 .card {
     transition: transform 0.4s ease;
+    /* background-color: aquamarine; */
 }
 
+.card-body, .card-title, .card-text, .list-group, .list-group-item{
+    background-color: rgb(232, 235, 84);
+    }
+    
+    
 .card:hover{
-    transform: scale(1.05);
-}
-
-footer {
-    background-color: rgb(62, 231, 62) !important;
+        transform: scale(1.05);
+        }
+        
+body {background-color:rgb(232, 235, 84)}
+        
+.bg-body-tertiary  {
+    background-color: rgb(173, 228, 151) !important;
 }
 
 header{
     background-color: rgb(209, 135, 39) !important;
 }
 
-form{
-    background-color: rgb(34, 30, 30) !important;
+.bg-body-tet {
+    background-color: rgb(241, 81, 81);
 }
-#formulariod{
-    background-color: rgb(43, 42, 42)!important;
-}
-

@@ -4,16 +4,17 @@
 
 <div class="row">
     
+
     {% for postre in postres %}
     <div class="col-xl-3  col-md-6 col-xs-12 ">
-        <div class="card" >
+        <div class="card"  >
             <img src="{{postre.imagen_url}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">
                 
                 </h5>
                     <!-- <a href="/web/{{postre.id}}"></a>{{postres.nombre}} -->
-                <p class="card-text"><u>Aproveche nuestras exquisitas propuestas</u></p>
+                <p class="card-text" ><u>Aproveche nuestras exquisitas propuestas</u></p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">{{postre.ingrediente}}</li>

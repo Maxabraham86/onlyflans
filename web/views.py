@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from web.postres import postres
-from web.forms import FlanForm
-from web.models import Contact
+from django.shortcuts import render, redirect # se importan las funciones
+from django.http import HttpResponse #se importa la funcion
+from web.postres import postres # se importa la lista
+from web.forms import FlanForm  #se importa el formulario
+from web.models import Contact #se importa la tabla
 
 def index(req):
     context ={
@@ -79,6 +79,7 @@ def formd(req):
         #validar el formulario
         form = FlanForm(req.POST)
         if form.is_valid():
+            #Se agrega la funcion de guardado
             Contact.objects.create(
                 **form.cleaned_data
             )
