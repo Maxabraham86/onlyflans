@@ -1,48 +1,38 @@
 {% extends 'base.html' %}
-
-
 {% block content %}
+<!-- {% include 'parts/carrousel.html' %} -->
 
-<h3> Welcome Customers <br>
-    Bienvenidos queridos clientes!
-</h3>
-<!--formulario-->
-{% for error in errores %}
-    <!-- <h3 class="danger" > {{mensaje}}</h3> -->
-    <div class="alert alert-success" role="alert">{{error}}</div>
+<div class="row">
+    
+
+    {% for flan in flanes %}
+    <div class="col-xl-3  col-md-6 col-xs-12 ">
+        <div class="card"  >
+            <img src="{{flan.foto}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">
+                
+                </h5>
+                    <!-- <a href="/web/{{postre.id}}"></a>{{postres.nombre}} -->
+                <p class="card-text" ><u>Aproveche nuestras exquisitas propuestas</u></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{flan.ingrediente}}</li>
+                <li class="list-group-item">{{flan.descripcion}}</li>
+                <li class="list-group-item">{{flan.precio}}</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">comprar</a>
+                <a href="#" class="card-link">añadir a su orden</a>
+            </div>
+        </div>
+    </div>
+
 {% endfor%}
-<!-- <div id="formulario">
-    <div class="container">
-        <form action="/contact_form/" method="post">
-            {% csrf_token %}
-            <h3 class="text-center text-light mb-5">Contacto</h3>
-            <div class="mb-3">
-                <label for="" class="form-label text-center">Nombre</label>
-                <input type="text" name="customer_name" class="form-control" >
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label">email</label>
-                <input type="text" name="customer_email" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="casilla_mensaje"  rows='3' name="message" ></textarea>
-            </div>
-            <button id="mensaje" type="submit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
-                data-bs-custom-class="custom-tooltip" data-bs-title="Presiona para enviar a tu mensaje">enviar</button>
-        </form>
-    </div>
-</div> -->
-<div id="formulariod" class="bg-dark">
-    <div class="container">
-        <form action="/welcome/" method="post">
-            {% csrf_token %}
-            {{form}}
-            <button id="mensaje" type="submit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
-                data-bs-custom-class="custom-tooltip" data-bs-title="Presiona para enviar a tu mensaje">enviar</button>
-        </form>
-    </div>
-</div>
 
+
+</div>
+<!-- <img src="https://ingmar.app/blog/wp-content/uploads/2016/06/Flan-de-coco1.jpg" alt=""> -->
 
 {% endblock%}
+

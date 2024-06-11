@@ -21,12 +21,40 @@ postres =[
     'imagen_url': "https://lacocinadefrabisa.lavozdegalicia.es/wp-content/uploads/2020/07/flan-de-chocolate-y-frutos-rojos-3-ok-2.jpg",
     'precio': 2200
 },
-        {'id':4,
+    {'id':4,
     'nombre': 'flan de lucuma',
     'ingrediente' :'ingredientes: leche, lucuma de la región...',
     'descripcion' :'postre popular a base del más exquisitas lúcumas ',
     'imagen_url': "https://cocinachilena.cl/wp-content/uploads/2013/04/flan-de-lucuma-scaled.jpg",
     'precio': 2200
-}
+},
 
+    {'id':5,
+    'nombre': 'flan de platano ',
+    'ingrediente' :'ingredientes: leche, lucuma de la región...',
+    'descripcion' :'postre popular a base del más exquisitas lúcumas ',
+    'imagen_url': "https://3.bp.blogspot.com/-7GNREHy7ki4/WDBpcqDJXtI/AAAAAAAAfO8/ICrGfGCevY0IavcpzRtDkuBIBOX3zBo0wCLcB/s1600/flanes%2Bde%2Bberenjena%2Bqueso-1008-2.jpg",
+    'precio': 2200
+},
+    {'id':6,
+    'nombre': 'flan de lucuma',
+    'ingrediente' :'ingredientes: leche, lucuma de la región...',
+    'descripcion' :'postre popular a base del más exquisitas lúcumas ',
+    'imagen_url': "https://th.bing.com/th/id/OIP.u-X1QTeE9L6zZ_7qQkB5EwHaE4?w=288&h=191&c=7&r=0&o=5&pid=1.7",
+    'precio': 2200
+},
+    {'id':7,
+    'nombre': 'flan de lucuma',
+    'ingrediente' :'ingredientes: leche, lucuma de la región...',
+    'descripcion' :'postre popular a base del más exquisitas lúcumas ',
+    'imagen_url': "https://th.bing.com/th/id/OIP.auuCZSXZtl8X4hBnsCEFwwHaFj?w=205&h=180&c=7&r=0&o=5&pid=1.7",
+    'precio': 2200
+},
+    {'id':8,
+    'nombre': 'flan de lucuma',
+    'ingrediente' :'ingredientes: leche, lucuma de la región...',
+    'descripcion' :'postre popular a base del más exquisitas lúcumas ',
+    'imagen_url': "https://th.bing.com/th/id/OIP.0ortpxEhJK3yBlX46F6eRgHaE8?w=254&h=180&c=7&r=0&o=5&pid=1.7",
+    'precio': 2200
+} 
         ]

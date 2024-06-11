@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<!-- {% include 'parts/carrousel.html' %} -->
+{% if not postre %}
+<h3 class="text-center">Flan no encontrado</h3>
+{% else %}
+<h3 class="text-center">Detalles de {{postre.nombre}}</h3>
+<div class="container">
+    <div class="row">
+    <div class="col-6 offset-3">
+        <p>{{postre.nombre}} contiene {{ postre.ingrediente }}</p>
+    
+<h3> Indice</h3>
+{% endif %}
+{% endblock%}

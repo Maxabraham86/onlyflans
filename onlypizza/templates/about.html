@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{%block content %}
+    {% if errores%}
+        {% for error in errores%}
+            <div class="alert">{{error}}</div>
+        {% endfor%}
+    {% endif%}
+    
+    <!-- <form action="/contact" method="post">
+...
+
+    </form> -->
+    
+    
+            <h3> About </h3>
+<div class="text-center mx-auto">
+OnlyFlans es una empresa enfocada en el mundo de los postres de leche, en especial en la venta de ﬂan(de ahí
+su nombre), nace en 2022 en viña del mar de chile como una
+empresa familiar que pretende entregar productos de calidad
+a su clientela, estando ubicada en el sector de san martin, a pasos de libertad.
+
+
+OnlyFlans es una empresa de reciente creación, por lo cual necesita
+mostrarse como una empresa seria y disponer de un espacio para
+mostrar los productos que se generan desde la empresa, es por esto
+que las ideas principales del sitio web que crearemos, serán por un
+lado la presentación de los productos vendidos al público general, así
+como también la presentación de productos especiales solo para los
+usuarios registrados, con el ﬁn de generar una base de clientes
+potenciales y una ﬁdelización de los clientes recurrentes, dejando la
+puerta abierta a futuras características como venta de productos a
+través de internet, entre otras.
+</div>
+{% endblock%}
+

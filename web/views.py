@@ -2,14 +2,25 @@ from django.shortcuts import render, redirect # se importan las funciones
 from django.http import HttpResponse #se importa la funcion
 from web.postres import postres # se importa la lista
 from web.forms import FlanForm  #se importa el formulario
-from web.models import Contact #se importa la tabla
+from web.models import Contact, Flan #se importa la tabla
 
 def index(req):
+
+    flanes_publicos = Flan.objects.filter(is_private=False)
     context ={
-        'postres':postres
+        'flanes':flanes_publicos
     }
     
     return render(req, 'index.html', context)
+
+def welcome(req):
+    # debe mostros solo los flanes privados de la base de datos
+    
+    flanes_privados = Flan.objects.filter(is_private=True)
+    context ={
+        'flanes':flanes_privados
+    }
+    return render(req,'welcome.html', context)
 
 def detalleFlan(req, id):
     #print (f'\n\n\n{id}\n\n\n')
@@ -29,10 +40,6 @@ def about(req):
 
 
 
-def welcome(req):
-    
-    
-    return render(req, 'welcome.html')
 
 def contact_form(req):
     errores=[]
@@ -41,18 +48,18 @@ def contact_form(req):
     customer_email = req.POST["customer_email"]
     message = req.POST["message"]
     
-    if len(customer_name  )> 64:
-        errores.append('largo mayor a 64 caracteres')
+    # if len(customer_name  )> 64:
+    #     errores.append('largo mayor a 64 caracteres')
         
     
-    if not '@' in customer_email:
-        errores.append('Falta el arroba')
+    # if not '@' in customer_email:
+    #     errores.append('Falta el arroba')
 
-        context ={'errores' : errores}
-    if len(errores) > 0:
-        return render(req, 'welcome.html',context)
-    else:
-        return render(req, 'exito.html')
+    #     context ={'errores' : errores}
+    # if len(errores) > 0:
+    #     return render(req, 'welcome.html',context)
+    # else:
+    #     return render(req, 'exito.html')
     
     
         #return redirect ("/nombre_pagina")
@@ -70,11 +77,11 @@ def contact_form(req):
     #si len errores == 0 : redirijo a pagina de exito
     # si len errores > 0 : vuelvo a vargar 'welcome.html', mostrando los errores
     
-def formd(req):
+def contact(req):
     if req.method == 'GET':
         form = FlanForm()
         context={'form':form}
-        return render(req, 'welcome.html', context)
+        return render(req, 'contact.html', context)
     else:
         #validar el formulario
         form = FlanForm(req.POST)
@@ -86,8 +93,22 @@ def formd(req):
             return redirect('/success')
         context ={'form':form}
         
-    return render(req, 'welcome.html', context)
+    return render(req, 'contact.html', context)
 
 def success(req):
     return render(req,'exito.html')
 
+# def contact(request):
+#     if request.method == 'GET':
+#         form = ContactForm()                    # Se crea una instancia del formulario ContactForm sin datos iniciales.
+#         context = {'form': form}                # Se crea un contexto que contiene el formulario vacío.
+#         return render(request, 'contact.html', context) # Se renderiza la plantilla 'contact.html' con el contexto.
+#     else:
+#         form = ContactForm(request.POST)        # Se crea una instancia de ContactForm con los datos enviados en la solicitud POST.
+#         if form.is_valid():                     # Se verifica si los datos del formulario son válidos.
+#             Contact.objects.create(
+#                 **form.cleaned_data
+#             )                                   # Esta es la forma de pedirle a un modelo que cree un registro usando los datos de un formulario
+#             return redirect('/success')         # Si el formulario es válido, se redirige al usuario a la URL '/success'.
+#         context = {'form': form}                # Se crea un contexto que contiene el formulario con los datos (válidos o no).
+#         return render(request, 'contact.html', context) # Se vuelve a renderizar la plantilla con el contexto actualizado.
