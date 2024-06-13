@@ -3,12 +3,27 @@
 
 {% block content %}
 
+<div class="row">
+    <div class="col-4 offset-4">
+        
+        <div id="formulariod" class="bg-dark">
+            <div class="container">
+                <form action="/contact/" method="post">
+                    {% csrf_token %}
+                    {{form}}
+                    <button id="mensaje" type="submit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-custom-class="custom-tooltip" data-bs-title="Presiona para enviar a tu mensaje">enviar</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock%}
 
 <!-- formulario-->
-{% for error in errores %}
-    <!-- <h3 class="danger" > {{mensaje}}</h3> -->
-    <div class="alert alert-success" role="alert">{{error}}</div>
-{% endfor%}
 <!-- <div id="formulario">
     <div class="container">
         <form action="/contact_form/" method="post">
@@ -31,16 +46,3 @@
         </form>
     </div>
 </div> -->
-<div id="formulariod" class="bg-dark">
-    <div class="container">
-        <form action="/contact/" method="post">
-            {% csrf_token %}
-            {{form}}
-            <button id="mensaje" type="submit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
-                data-bs-custom-class="custom-tooltip" data-bs-title="Presiona para enviar a tu mensaje">enviar</button>
-        </form>
-    </div>
-</div>
-
-
-{% endblock%}

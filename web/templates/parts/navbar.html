@@ -13,14 +13,34 @@
             <a class="nav-link" href="/">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
+            <a class="nav-link" href="/about">Sobre nosotros</a>
           </li>
+          {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="/welcome">Welcome</a>
+            <a class="nav-link" href="/welcome">Bienvenido</a>
           </li>
+          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contacto</a>
           </li>
-      </div>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Registrate</a>
+          </li>
+      </ul>
+        <div id="list-group-flush" class="d-flex mx-5" role="search">
+          
+          {% if user.is_authenticated %}
+          <span class="d-inline-block m-1 text-light" > Hola {{ user.username }}</span>
+          <form id="logout-form" action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger ms-2 btn-sm">Logout</button>
+            </form>
+        {% else %}
+          <div class="d-flex">
+            <a href="{% url 'login' %}" class="btn btn-success btn-sm">Login</a>
+          </div>
+          {% endif %}
+        </div>
     </div>
+  </div>
   </nav>

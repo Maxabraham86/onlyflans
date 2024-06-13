@@ -3,6 +3,7 @@ from django.http import HttpResponse #se importa la funcion
 from web.postres import postres # se importa la lista
 from web.forms import FlanForm  #se importa el formulario
 from web.models import Contact, Flan #se importa la tabla
+from django.contrib.auth.decorators import login_required
 
 def index(req):
 
@@ -13,6 +14,7 @@ def index(req):
     
     return render(req, 'index.html', context)
 
+@login_required
 def welcome(req):
     # debe mostros solo los flanes privados de la base de datos
     
@@ -50,20 +52,14 @@ def contact_form(req):
     
     # if len(customer_name  )> 64:
     #     errores.append('largo mayor a 64 caracteres')
-        
-    
     # if not '@' in customer_email:
     #     errores.append('Falta el arroba')
-
     #     context ={'errores' : errores}
     # if len(errores) > 0:
     #     return render(req, 'welcome.html',context)
     # else:
     #     return render(req, 'exito.html')
-    
-    
         #return redirect ("/nombre_pagina")
-    
     
     
     
@@ -112,3 +108,9 @@ def success(req):
 #             return redirect('/success')         # Si el formulario es válido, se redirige al usuario a la URL '/success'.
 #         context = {'form': form}                # Se crea un contexto que contiene el formulario con los datos (válidos o no).
 #         return render(request, 'contact.html', context) # Se vuelve a renderizar la plantilla con el contexto actualizado.
+
+# def login(req):
+#     return render(req, 'login.html')
+
+def register(req):
+    return render(req, 'register.html')
