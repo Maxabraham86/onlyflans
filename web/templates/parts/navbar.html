@@ -35,7 +35,7 @@
             {% csrf_token %}
             <button type="submit" class="btn btn-danger ms-2 btn-sm">Logout</button>
             </form>
-        {% else %}
+          {% else %}
           <div class="d-flex">
             <a href="{% url 'login' %}" class="btn btn-success btn-sm">Login</a>
           </div>

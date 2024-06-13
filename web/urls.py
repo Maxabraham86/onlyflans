@@ -1,5 +1,5 @@
 from django.urls import path
-from web.views import index, about, welcome, detalleFlan, contact, success, register
+from web.views import index, about, welcome, contact, success, register
 from django.contrib.auth import views as auth_views
 
 urlpatterns =[
