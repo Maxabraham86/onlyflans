@@ -31,16 +31,20 @@
 				</div>
 			</div>
 			{% endblock %}
+			
 			{% if next %}
 			<p>{{ next }}</p>
 			{% endif %}
 
 		</header>
+			<div>
+
+				{% block navbar %}
+				{% include 'parts/navbar.html' %}
+				{% endblock %}
+			</div>
 	
-			{% block navbar %}
-			{% include 'parts/navbar.html' %}
-			{% endblock %}
-	
+
 			<main>
 				{% block content %}{% endblock %}
 			</main>

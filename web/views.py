@@ -4,6 +4,14 @@ from web.postres import postres # se importa la lista
 from web.forms import FlanForm  #se importa el formulario
 from web.models import Contact, Flan #se importa la tabla
 from django.contrib.auth.decorators import login_required
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.views import LoginView
+
+# class LoginViewPropia(SuccessMessageMixin, LongView):
+#     template_name = 'registration/login.html'
+#     success_url = 'blog-home'
+#     success_message = "Has ingresado correctamente"
+
 
 def index(req):
 
