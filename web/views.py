@@ -7,10 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView
 
-# class LoginViewPropia(SuccessMessageMixin, LongView):
-#     template_name = 'registration/login.html'
-#     success_url = 'blog-home'
-#     success_message = "Has ingresado correctamente"
+class LoginViewPropia(SuccessMessageMixin, LoginView):
+    success_message = "Has ingresado correctamente"
 
 
 def index(req):
