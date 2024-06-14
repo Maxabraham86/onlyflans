@@ -25,8 +25,10 @@ def welcome(req):
     # debe mostros solo los flanes privados de la base de datos
     
     flanes_privados = Flan.objects.filter(is_private=True)
+    flanes_publicos = Flan.objects.filter(is_private=False)
+    flanes =Flan.objects.all()
     context ={
-        'flanes':flanes_privados
+        'flanes':flanes
     }
     return render(req,'welcome.html', context)
 
