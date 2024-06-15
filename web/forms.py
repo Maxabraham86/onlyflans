@@ -32,7 +32,19 @@ class LogingForm(forms.Form):
     
     #forms.CharField(label='Contraseña', widget=forms.PasswordInput)
     
-# class RegisterForm(forms.Form):
-#     username
-#     password1
-#     password2
+    class RegisterForm(forms.Form):
+        username = forms.CharField(
+            max_length =25,
+            label= 'usuario', 
+            widget = forms.TextInput(attrs={'class':'form-control', 'placeholder':'Mensaje'})
+        )
+        password = forms.CharField(
+            max_length =25,
+            label='password',
+            widget = forms.PasswordInput
+        )
+        passrepeat = forms.CharField(
+        max_length =25,
+        label='password',
+        widget = forms.PasswordInput
+    )

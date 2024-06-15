@@ -3,18 +3,18 @@
 <!-- {% include 'parts/carrousel.html' %} -->
 <h1>Bienvenido {{ user.name }}</h1>
 <div class="row">
-    
+
 
     {% for flan in flanes %}
     <div class="col-xl-3  col-md-6 col-xs-12 ">
-        <div class="card"  >
+        <div class="card rounded-0" data-bs-toggle="modal" data-bs-target="#flanModal{{flan.id}}">
             <img src="{{flan.foto}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">
-                
+
                 </h5>
-                    <!-- <a href="/web/{{postre.id}}"></a>{{postres.nombre}} -->
-                <p class="card-text" ><u>Aproveche nuestras exquisitas propuestas</u></p>
+                <!-- <a href="/web/{{postre.id}}"></a>{{postres.nombre}} -->
+                <p class="card-text"><u>Aproveche nuestras exquisitas propuestas</u></p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">{{flan.nombre}}</li>
@@ -28,11 +28,25 @@
         </div>
     </div>
 
-{% endfor%}
+    <div class="modal fade" id="flanModal{{flan.id}}" data-bs-keyboard="true" tabindex="-1"
+        aria-labelledby="flanModalLabel{{flan.id}}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="flanModalLabel{{flan.id}}">{{ flan.nombre }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ flan.foto }}" class="img-fluid" alt="...">
+                    <p class="mt-4 fs-5">{{ flan.descripcion }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor%}
 
 
 </div>
 <!-- <img src="https://ingmar.app/blog/wp-content/uploads/2016/06/Flan-de-coco1.jpg" alt=""> -->
 
 {% endblock%}
-
