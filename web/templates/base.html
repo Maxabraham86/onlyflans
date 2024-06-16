@@ -72,13 +72,16 @@
 		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
 		crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-	{% block js %}
-		<script src= "{% static 'js/script.js' %}"></script>
+		{% block js %}
+		<script src="{% static 'js/script.js' %}"></script>
 		<script>
 			// setTimeout(ACCION, TIEMPO DE ESPERA)
 			setTimeout(function(){
 			$('.fade').fadeOut(1500);
 			}, 3000);
+			const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
 		</script>
 	{% endblock %}
 
