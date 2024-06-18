@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView
 
+
 class LoginViewPropia(SuccessMessageMixin, LoginView):
     success_message = "Has ingresado correctamente"
 
@@ -15,7 +16,7 @@ def index(req):
 
     flanes_publicos = Flan.objects.filter(is_private=False)
     context ={
-        'flanes':flanes_publicos
+        'flanes':flanes_publicos,
     }
     
     return render(req, 'index.html', context)

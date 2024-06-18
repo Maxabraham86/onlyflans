@@ -2,17 +2,19 @@
 {% block content %}
 <!-- {% include 'parts/carrousel.html' %} -->
 
+{% include 'parts/carrousel.html' %}
 <div class="row">
-
+    
 
     {% for flan in flanes %}
     <div class="col-xl-3  col-md-6 col-xs-12 ">
         <!-- <div class="card"> -->
+        
+    
             <div class="card rounded-0" data-bs-toggle="modal" data-bs-target="#flanModal{{flan.id}}">
             <img src="{{flan.foto}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">
-
                 </h5>
                 <!-- <a href="/web/{{postre.id}}"></a>{{postres.nombre}} -->
                 <p class="card-text"><u>Aproveche nuestras exquisitas propuestas</u></p>

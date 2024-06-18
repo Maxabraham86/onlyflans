@@ -1,0 +1,100 @@
+.card {
+    transition: transform 0.4s ease;
+    /* background-color: aquamarine; */
+}
+
+.card-body,
+.card-title,
+.card-text,
+.list-group,
+.list-group-item {
+    background-color: rgb(232, 235, 84);
+}
+
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+body {
+    background-color: rgb(232, 235, 84)
+}
+
+.bg-body-tertiary {
+    background-color: rgb(173, 228, 151) !important;
+}
+
+header {
+    background-color: rgb(209, 135, 39) !important;
+}
+
+.bg-body-tet {
+    background-color: rgb(241, 81, 81);
+}
+
+
+/** Toasty efecto **/
+#toasty {
+    height: 8rem;
+    animation-name: aparicion;
+    animation-duration: 1s;
+    /* Duración de la animación */
+    animation-delay: 3s;
+    /* Retardo antes de comenzar la animación */
+    animation-fill-mode: forwards;
+    /* Asegura que la imagen se mantenga en la posición final después de la animación */
+    position: absolute;
+    /* Posiciona con respecto al contenedor */
+    bottom: 0.2rem;
+    /* Posiciona la imagen en la esquina inferior */
+    right: 0;
+    /* Posiciona la imagen en la esquina derecha */
+    transform: translateX(100%);
+    /* Mantiene la imagen oculta fuera de la pantalla hacia la derecha antes de la animación */
+}
+
+@keyframes aparicion {
+
+    0%,
+    100% {
+        transform: translateX(100%);
+        /* Comienza y termina fuera de la pantalla hacia la derecha */
+    }
+
+    47% {
+        transform: translateX(0);
+        /* Trae la imagen completamente a la vista */
+    }
+
+    70% {
+        transform: translateX(0);
+        /* Mantiene la imagen en la vista */
+    }
+
+    53% {
+        transform: translateX(0);
+        /* Comienza a mover la imagen fuera de la pantalla */
+    }
+}
+
+/* Banner deslizante */
+/* .sliding-banner {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #00afe8;
+    color: #fff;
+}
+
+.banner-item {
+    display: inline-block;
+    padding: 0.3rem;
+    position: relative;
+    right: -100%;
+    animation: slideInfinitely 40s linear infinite;
+}
+
+@keyframes slideInfinitely {
+    0% { right: -100%; }
+    100% { right: 100%; }
+} */

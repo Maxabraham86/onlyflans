@@ -1,8 +1,5 @@
-{%extends 'base.html' %}
+{% extends 'base.html' %}
 
-{% block css %}
-
-{% endblock %}
 
 
 {% block content %}
@@ -27,13 +24,9 @@
                         <label class="form-label">Ingresa tu contraseña:</label>
                         <input type="password" class="form-control" name="{{ form.password.name }}" required>
                     </div>
-                    <button id="mensaje" type="submit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-custom-class="custom-tooltip" data-bs-title="Presiona para enviar a tu mensaje">enviar</button>
+                    <button id="mensaje" type="submit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip" data-bs-title="Bienvenido a tu sesion">Entrar</button>
                         
-                        <button type="submit" class="btn btn-primary"
-                        data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-custom-class="custom-tooltip"
-                        data-bs-title="Estás a un paso de entrar...">Ingresar</button>
 
                 </div>
                 
