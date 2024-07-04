@@ -1,6 +1,7 @@
 from django.urls import path
-from web.views import index, about, welcome, contact, success, register
+from web.views import index, about, welcome, contact, success, register, registerfree, suscriptions,registerpremium,registerdiamond
 from django.contrib.auth import views as auth_views
+
 
 urlpatterns =[
     path ('', index),
@@ -13,4 +14,9 @@ urlpatterns =[
     #path('login/', login, name='login'),
     path('register/', register, name='registro'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('suscriptions/', suscriptions, name ='suscriptions'),
+    path('registerfree/', registerfree, name='registerfree'),
+    path('registerpremium/', registerpremium, name='registerpremium'),
+    path('registerdiamond/', registerdiamond, name='registerdiamond'),
+    
 ]

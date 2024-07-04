@@ -33,7 +33,7 @@ header {
 }
 
 
-/** Toasty efecto **/
+* Toasty efecto *
 #toasty {
     height: 8rem;
     animation-name: aparicion;
@@ -98,3 +98,9 @@ header {
     0% { right: -100%; }
     100% { right: 100%; }
 } */
+#sobre1{
+    font-family: 'Playwrite CO';
+    font-size: 20px; 
+    line-height: 1.5;
+    font-weight: bolder
+}

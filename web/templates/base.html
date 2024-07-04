@@ -14,29 +14,37 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 		integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="{%  static 'css/styles.css' %}">
 	{% block css %}
 	<style>
 		.sliding-banner {
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-    background-color: #2ad42a;
-    color: #fff;
-}
+			display: flex;
+			overflow: hidden;
+			white-space: nowrap;
+			background-color: #a5d46f;
+			color: #fff;
+		}
 
-.banner-item {
-    display: inline-block;
-    padding: 0.3rem;
-    position: relative;
-    right: -100%;
-    animation: slideInfinitely 40s linear infinite;
-}
+		.banner-item {
+			display: inline-block;
+			padding: 0.3rem;
+			position: relative;
+			right: -100%;
+			animation: slideInfinitely 40s linear infinite;
+		}
 
-@keyframes slideInfinitely {
-    0% { right: -100%; }
-    100% { right: 100%; }
-}
+		@keyframes slideInfinitely {
+			0% {
+				right: -100%;
+			}
+
+			100% {
+				right: 100%;
+			}
+		}
 	</style>
 	{% endblock %}
 </head>
@@ -53,11 +61,12 @@
 				<div class="sliding-banner">
 					<div class="banner-item ms-4">Indicadores económicos de hoy:</div>
 					<div class="banner-item ms-4">Dolar: ${{ indicators.dolar.valor }}<span class="ms-4">|</span></div>
-					<div class="banner-item ms-4">Euro: ${{ indicators.euro.valor }}<span class="ms-4">|</span></div>   
+					<div class="banner-item ms-4">Euro: ${{ indicators.euro.valor }}<span class="ms-4">|</span></div>
 					<div class="banner-item ms-4">UF: ${{ indicators.uf.valor }}<span class="ms-4">|</span></div>
 					<div class="banner-item ms-4">UTM: ${{ indicators.utm.valor }}<span class="ms-4">|</span></div>
 					<div class="banner-item ms-4">IPC: {{ indicators.ipc.valor }}%<span class="ms-4">|</span></div>
-					<div class="banner-item ms-4">Bitcoin: ${{ indicators.bitcoin.valor }}<span class="ms-4">|</span></div>
+					<div class="banner-item ms-4">Bitcoin: ${{ indicators.bitcoin.valor }}<span class="ms-4">|</span>
+					</div>
 				</div>
 				<div id="logo">
 					<div class="text-center d-block ">
@@ -71,7 +80,7 @@
 			{% endif %} -->
 
 			</header>
-			
+
 			{% if messages %}
 			{% for message in messages %}
 			<div class="alert alert-{{message.tags}} alert-dismissible fade show " role="alert">
@@ -84,14 +93,28 @@
 			{% block navbar %}
 			{% include 'parts/navbar.html' %}
 			{% endblock %}
+
+
+			{% block message%}
+			{% if messages %}
+			{% for message in messages %}
+			<div class="row">
+				<div class="col">
+					<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+						<strong>{{ message }}</strong>
+						<button type="button" class="btn btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			{% endif %}
+			{% endblock %}
+
+
+
 			<div class="row">
 				<div class="col-12 col-md-4 offset-8">
-
-
-
-
 				</div>
-
 			</div>
 
 

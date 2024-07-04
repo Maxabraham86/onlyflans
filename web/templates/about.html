@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {%block content %}
     {% if errores%}
@@ -13,24 +14,38 @@
     </form> -->
     
     
-            <h3> About </h3>
-<div class="text-center mx-auto">
-OnlyFlans es una empresa enfocada en el mundo de los postres de leche, en especial en la venta de ﬂan(de ahí
-su nombre), nace en 2022 en viña del mar de chile como una
-empresa familiar que pretende entregar productos de calidad
-a su clientela, estando ubicada en el sector de san martin, a pasos de libertad.
+            <h3>Sobre Nosotros </h3>
+
+<div class="row">
+    
+    <div class="col-lg-6 sm-12">
+        <div class="text-center mx-auto" style="font-family: 'Playwrite CO'; font-size: 20px; line-height: 1.5;font-weight: bolder; color: rgb(95, 0, 184);">
+        <!-- <div id="sobre1" class="text-center mx-auto" ></div> -->
+            OnlyFlans es una empresa enfocada en el mundo de los postres de leche, en especial en la venta de ﬂan(de ahí
+            su nombre), nace en 2022 en viña del mar de chile como una
+            empresa familiar que pretende entregar productos de calidad
+            a su clientela, estando ubicada en el sector de san martin, a pasos de libertad.
 
 
-OnlyFlans es una empresa de reciente creación, por lo cual necesita
-mostrarse como una empresa seria y disponer de un espacio para
-mostrar los productos que se generan desde la empresa, es por esto
-que las ideas principales del sitio web que crearemos, serán por un
-lado la presentación de los productos vendidos al público general, así
-como también la presentación de productos especiales solo para los
-usuarios registrados, con el ﬁn de generar una base de clientes
-potenciales y una ﬁdelización de los clientes recurrentes, dejando la
-puerta abierta a futuras características como venta de productos a
-través de internet, entre otras.
+            OnlyFlans es una empresa de reciente creación, por lo cual necesita
+            mostrarse como una empresa seria y disponer de un espacio para
+            mostrar los productos que se generan desde la empresa, es por esto
+            que las ideas principales del sitio web que crearemos, serán por un
+            lado la presentación de los productos vendidos al público general, así
+            como también la presentación de productos especiales solo para los
+            usuarios registrados, con el ﬁn de generar una base de clientes
+            potenciales y una ﬁdelización de los clientes recurrentes, dejando la
+            puerta abierta a futuras características como venta de productos a
+            través de internet, entre otras.
+        </div>
+    </div>
+    <div class="col-lg-6 sm-12">
+        
+        
+        <img src="{% static 'img/flan_ia.png' %}" alt="" style="max-width:100% ; max-height:100%">
+    </div>
 </div>
+
+
 {% endblock%}
 

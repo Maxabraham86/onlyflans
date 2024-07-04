@@ -1,25 +1,49 @@
 from django.shortcuts import render, redirect # se importan las funciones
 from django.http import HttpResponse #se importa la funcion
 from web.postres import postres # se importa la lista
-from web.forms import FlanForm  #se importa el formulario
-from web.models import Contact, Flan #se importa la tabla
+from web.forms import FlanForm, RegisterForm  #se importa el formulario
+from web.models import Contact, Flan, UserProfile #se importa la tabla
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView
-
+from django.contrib import messages
+from django.contrib.auth.models import User
 
 class LoginViewPropia(SuccessMessageMixin, LoginView):
     success_message = "Has ingresado correctamente"
 
 
-def index(req):
-
-    flanes_publicos = Flan.objects.filter(is_private=False)
-    context ={
-        'flanes':flanes_publicos,
-    }
+#def index(req):
+    # modo en que se separe la exposicion de flanes publicos y privados
+    # flanes_publicos = Flan.objects.filter(is_private=False)
+    # context ={
+    #     'flanes':flanes_publicos,
+    # }
     
-    return render(req, 'index.html', context)
+    # return render(req, 'index.html', context)
+
+
+#
+def index(request):
+    if request.user.is_authenticated:
+        user_profile = UserProfile.objects.get(user=request.user)
+        context = {
+            'flanes': []
+            }
+        if user_profile.user_type == 'free':
+            context['flanes'] = Flan.objects.filter(type_flan='free')
+        elif user_profile.user_type == 'premium':
+            context['flanes'] = Flan.objects.filter(type_flan='free') | Flan.objects.filter(type_flan='premium')
+        elif user_profile.user_type == 'diamond':
+            context['flanes'] = Flan.objects.filter(type_flan='free') | Flan.objects.filter(type_flan='premium') | Flan.objects.filter(type_flan='diamond')
+        return render(request, 'index.html', context)
+    else:
+        flanes_publicos = Flan.objects.filter(type_flan='free')
+        context = {
+            'flanes': flanes_publicos,
+            }
+        return render(request, 'index.html', context)
+
 
 @login_required
 def welcome(req):
@@ -123,3 +147,49 @@ def success(req):
 
 def register(req):
     return render(req, 'register.html')
+
+
+def register_user(request, user_type):
+    form = RegisterForm()
+    context = {'form': form}
+    
+    if request.method == 'GET':
+        return render(request, f'registration/register{user_type}.html', context)
+    
+    form = RegisterForm(request.POST)
+    if form.is_valid():
+        data = form.cleaned_data
+        if data['password'] != data['passRepeat']:
+            messages.error(request, 'Ambas contraseñas deben ser iguales')
+            return redirect(f'/register{user_type}')
+        user = User.objects.create_user(
+            username=data['username'],
+            email=data['email'],
+            password=data['password']
+        )
+        UserProfile.objects.create(
+            user=user,
+            user_type=user_type
+        )
+        messages.success(request, '¡Usuario creado! por favor, inicie sesión')
+        return redirect('/')
+    
+    context['form'] = form
+    return render(request, f'registration/register{user_type}.html', context)
+
+def suscriptions(request):
+    return render (request, 'registration/suscriptions.html')
+
+
+def registerfree(request):
+    return register_user(request, 'free')
+
+
+def registerpremium(request):
+    return register_user(request, 'premium')
+
+
+def registerdiamond(request):
+    return register_user(request, 'diamond')
+
+    #agregar funciones para los otros tipos de usuarios
